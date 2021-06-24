@@ -1,13 +1,92 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-section{
+:root {
+  --desaturated-red: hsl(0, 36%, 70%);
+  --soft-red: hsl(0, 93%, 68%);
+  --dark-gray-red: hsl(0, 6%, 24%);
+  --linear-soft: linear-gradient(
+    135deg,
+    hsl(0, 0%, 100%) 0%,
+    hsl(0, 100%, 98%) 100%
+  );
+  --linear-red: linear-gradient(
+    135deg,
+    hsl(0, 80%, 86%) 0%,
+    hsl(0, 74%, 74%) 100%
+  );
+}
+section {
   height: 100vh;
   width: 100%;
-  background-color: rgb(209, 8, 8);
+  background: var(--linear-soft);
   display: flex;
   justify-content: space-between;
   object-fit: cover;
+  font-size: 16px;
+  font-family: "Josefin Sans", sans-serif;
+  position: relative;
+}
+.pattern {
+  position: absolute;
+  z-index: 0;
+}
+.container {
+  max-width: 444px;
+  margin-left: 167px;
+  margin-top: 66px;
+  z-index: 1;
+}
+.logo {
+  margin-bottom: 129px;
+}
+h1 {
+  font-weight: 600;
+  font-size: 65px;
+  color: var(--dark-gray-red);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 16px;
+  line-height: 67px;
+}
+h1 span {
+  font-weight: 300;
+  color: var(--desaturated-red);
+}
+.container-info {
+  margin-bottom: 36px;
+  color: var(--desaturated-red);
+  font-weight: 400;
+  line-height: 30px;
+}
+form {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  justify-content: end;
+  position: relative;
+}
+form input {
+  position: absolute;
+  width: 100%;
+  height: 56px;
+  border-radius: 100px;
+  border-color: hsla(0, 6%, 24%, 0.397);
+  border-width: 1px;
+  padding-left: 34px;
+}
+form input::placeholder {
+  font-family: "Josefin Sans", sans-serif;
+  color: hsl(0, 36%, 70%);
+  font-weight: 400;
+}
+form button {
+  background: var(--linear-red);
+  width: 102px;
+  border-radius: 100px;
+  border-style: solid;
+  border: none;
+  z-index: 2;
 }
