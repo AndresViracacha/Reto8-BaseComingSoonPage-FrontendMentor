@@ -29,9 +29,11 @@ section {
   font-family: "Josefin Sans", sans-serif;
   position: relative;
 }
-.pattern {
+.background-image {
   position: absolute;
-  z-index: 0;
+  background-image: url(./images/bg-pattern-desktop.svg);
+  height: 100%;
+  width: 100%;
 }
 .container {
   max-width: 444px;
@@ -77,11 +79,42 @@ form input {
   border-width: 1px;
   padding-left: 34px;
 }
+.error {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  z-index: 10;
+  top: 50%;
+  right: 126px;
+  transform: translate(50%, -50%);
+}
+.error-message {
+  position: absolute;
+  top: 66px;
+  left: 34px;
+  color: var(--soft-red);
+  font-weight: 400;
+  opacity: 0;
+  transition: all ease 0.2s;
+}
+form input:valid ~ .error {
+  visibility: hidden;
+}
+form input:invalid ~ .error {
+  visibility: visible;
+}
+form input:valid ~ .error-message {
+  opacity: 0;
+}
+form input:invalid ~ .error-message {
+  opacity: 1;
+}
 form input::placeholder {
   font-family: "Josefin Sans", sans-serif;
   color: hsl(0, 36%, 70%);
   font-weight: 400;
 }
+
 form button {
   background: var(--linear-red);
   width: 102px;
@@ -89,4 +122,29 @@ form button {
   border-style: solid;
   border: none;
   z-index: 2;
+}
+
+.hero {
+  z-index: 20;
+}
+@media (max-width: 1160px) {
+  section {
+    flex-direction: column-reverse;
+    justify-content: start;
+    align-items: flex-start;
+  }
+  .hero {
+    position: absolute;
+    width: 100%;
+    height: 375px;
+    top: 80px;
+    object-fit: cover;
+    object-position: top;
+  }
+  .container {
+    margin: 32px;
+  }
+  .logo {
+    margin-bottom: 500px;
+  }
 }
